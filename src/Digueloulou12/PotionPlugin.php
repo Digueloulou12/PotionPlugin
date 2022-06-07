@@ -3,7 +3,7 @@
 namespace Digueloulou12;
 
 use pocketmine\entity\projectile\SplashPotion;
-use pocketmine\event\entity\ProjectileLaunchEvent;
+use pocketmine\event\entity\ProjectileHitBlockEvent;
 use pocketmine\event\Listener;
 use pocketmine\item\PotionType;
 use pocketmine\player\Player;
@@ -16,7 +16,7 @@ class PotionPlugin extends PluginBase implements Listener
         $this->getServer()->getPluginManager()->registerEvents($this, $this);
     }
 
-    public function onLaunch(ProjectileLaunchEvent $event)
+    public function onHit(ProjectileHitBlockEvent $event)
     {
         $item = $event->getEntity();
         $player = $event->getEntity()->getOwningEntity();
